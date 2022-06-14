@@ -6,6 +6,17 @@
     <title>CPEL - Simulado</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Escondendo o toast do boostrap quando clicar no botão enviar-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      $(document).ready(function(){    
+          $("#hideBtn").click(function(){
+              $("#myToast").toast("hide");
+          });
+      });
+    </script>
+
   </head>
   <body>
 
@@ -13,27 +24,70 @@
     <div class="container-fluid">
         <a class="navbar-brand">CPEL - Notas do Simulado</a>
         <form class="d-flex was-validated" role="search" id="myForm">
-        <div class="input-group">
-            <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-cake-candles"></i></span>
-            <input class="form-control is-invalid me-2" placeholder="Required example textarea" required="" type="date" id="nome"  min="1996-01-01" max="2005-01-31" aria-label="dataNascimento">
-        </div>    
-        <button type="submit" class="btn btn-primary" onclick="SendForm()">Acessar</button>
+          <div class="input-group">
+              <span class="input-group-text" 
+              id="inputGroup-sizing-default"
+              title="Data de Nascimento"
+              >
+              <i class="fa-solid fa-cake-candles"></i>
+              </span>
+              <input class="form-control is-invalid me-2" 
+              placeholder="Data de Nascimento" 
+              required="" 
+              type="date" 
+              id="dataNascimento"  
+              min="1996-01-01" max="2005-01-31" 
+              aria-label="dataNascimento"
+              title="Data de Nascimento"
+              >
+          </div>    
+          <button 
+          type="submit" 
+          class="btn btn-primary" 
+          onclick="SendForm()"
+          id="hideBtn"
+          >
+          Acessar
+          </button>
         </form>
     </div>
     </nav>
 
-    <div class="container m-5">
-        <h1>Sua data de nascimento</h1>
-        <p>text todos isso ai</p>
+    <div class="toast-container top-2 end-0 p-3">
+      <div class="toast fade show text-bg-primary" id="myToast" role="alert" aria-live="assertive" aria-atomic="true" >
+        <div class="d-flex">
+          <div class="toast-body">
+          Olá! Digite aqui sua data de nascimento para ver seus resultado.
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
     </div>
+
+    <div class="container m-5">
+        <h1 id="mensagemUser">Olá!</h1>
+        <p>Aqui estão suas notas :)</p>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <script>
-    var nome = document.getElementById("nome").value;
-    console.log("valido", nome)
+      
+    
     function SendForm(){
-        var nome = document.getElementById("nome").value;
-        console.log(nome)
-        }
+      
+        var data = document.getElementById("dataNascimento").value;
+
+        var dataInvertida = data.split('-').reverse().join('/')
+        
+        console.log("Data Nascimento", data)
+        console.log("Data Invertida", dataInvertida)
+
+        var mensagemUser = document.getElementById("mensagemUser");
+        mensagemUser.innerHTML = `Olá, ${dataInvertida}!`
+     
+      }
+
         var form = document.getElementById("myForm");
         function handleForm(event) { event.preventDefault(); } 
         form.addEventListener('submit', handleForm);
