@@ -116,18 +116,28 @@
     function SendForm(){
       
         var data = document.getElementById("dataNascimento").value;
-
         var dataInvertida = data.split('-').reverse().join('/')
-        
+        dataJoin = data.split('-').reverse().join('')
+
         console.log("Data Nascimento", data)
         console.log("Data Invertida", dataInvertida)
+        console.log("Data Join", dataJoin)
 
         var mensagemUser = document.getElementById("mensagemUser");
         mensagemUser.innerHTML = `Olá, ${dataInvertida}!`
 
         //teste pegar notas para barra
+        //getDatas()
+        //var acertos = acertosGerais
 
-        var acertos = "15"
+        const dados = new Request('./data/data.json');
+        fetch(dados)
+        .then(response => response.json())
+        .then(data => {
+            
+        var acertosGerais = data[0][`${dataJoin}`]["Acertos"]
+        console.log("Acertos gerais", acertosGerais)
+        var acertos = acertosGerais
 
         var notaGeral = document.getElementById("notaGeral");
         notaGeral.innerHTML = `${acertos}`
@@ -137,12 +147,55 @@
 
         var barNotaGeral = document.getElementById("barNotaGeral");
         barNotaGeral.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNota}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNota}" aria-valuemin="0" aria-valuemax="100">${porcentagemNota}%</div>`
-     
+
+        });       
+        
+
       }
 
         var form = document.getElementById("myForm");
         function handleForm(event) { event.preventDefault(); } 
         form.addEventListener('submit', handleForm);
+
+    function getDatas(){  
+
+        // var data = document.getElementById("dataNascimento").value;
+        // var dataJoin = data.split('-').reverse().join('')
+        // var gabarito = "gabarito"
+
+        const dados = new Request('./data/data.json');
+        fetch(dados)
+        .then(response => response.json())
+        .then(data => {
+            
+            var acertosGerais = data[0][`${dataJoin}`]["Acertos"]
+            console.log("Acertos gerais", acertosGerais)
+
+            var acertos = acertosGerais
+            
+            // //número da questão
+            // let q1 = document.getElementsByTagName("span")[0].id;
+            
+            // console.log("questao", q1)
+
+            // function isKeyExists(obj,key){
+            //     return obj.hasOwnProperty(key);
+            // }
+
+            // console.log("TEM ESSE VALOR? "+isKeyExists(`${data[0]}`, "12"))
+            
+            // //letra marcada pelo aluno
+            // document.getElementById(`${q1}`).innerHTML = `${data[0][`${codAluno}`][`${q1}`]}`;
+                   
+            // //cores
+            // if (`${data[0][`${codAluno}`][`${q1}`]}` == `${data[1][`${gabarito}`][`${q1}`]}`) {
+            //     document.getElementById(`${q1}`).classList.add('bg-primary');
+            // } else {
+            //     document.getElementById(`${q1}`).classList.add('bg-danger');
+            // };
+
+        });
+    }
     </script>
   </body>
 </html>
