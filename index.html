@@ -28,8 +28,8 @@
         -->
   <body style="background-color: #FFDE59;">
 
-    <nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <div class="container justify-content-between">
         <a class="navbar-brand">CPEL - Notas do Simulado</a>
         <form class="d-flex was-validated" role="search" id="myForm">
           <div class="input-group">
@@ -113,6 +113,29 @@
 
     <script>
 
+
+    function Notas(){
+        console.log("entrou aqui")
+        const dados = new Request('./data/data.json');
+        fetch(dados)
+        .then(response => response.json())
+        .then(data =>{
+        var acertosGerais = data[0][`${dataJoin}`]["Acertos"]
+        console.log("Acertos gerais", acertosGerais)
+        var acertos = acertosGerais
+
+        var notaGeral = document.getElementById("notaGeral");
+        notaGeral.innerHTML = `${acertos}`
+
+        var porcentagemNota = ((100/60)*acertos).toFixed(2)
+        console.log("porcentagem notas", porcentagemNota)
+
+        var barNotaGeral = document.getElementById("barNotaGeral");
+        barNotaGeral.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNota}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNota}" aria-valuemin="0" aria-valuemax="100">${porcentagemNota}%</div>`
+        })
+
+        }
+
     function SendForm(){
       
         var data = document.getElementById("dataNascimento").value;
@@ -134,21 +157,25 @@
         fetch(dados)
         .then(response => response.json())
         .then(data => {
-            
-        var acertosGerais = data[0][`${dataJoin}`]["Acertos"]
-        console.log("Acertos gerais", acertosGerais)
-        var acertos = acertosGerais
+        try {
+          testeErro = data[0][`${dataJoin}`]["Acertos"]
+        } catch (error) {
+          if ( error.fileName == undefined) {
+            console.log("Não encontrado")
+            mensagemUser.innerHTML = `Não encontramos: ${dataInvertida}!`
+            return
+          }else{
+            return
+          }
+        }
 
-        var notaGeral = document.getElementById("notaGeral");
-        notaGeral.innerHTML = `${acertos}`
+        Notas()
 
-        var porcentagemNota = ((100/60)*acertos).toFixed(2)
-        console.log("porcentagem notas", porcentagemNota)
+        console.log("depois...")
 
-        var barNotaGeral = document.getElementById("barNotaGeral");
-        barNotaGeral.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNota}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNota}" aria-valuemin="0" aria-valuemax="100">${porcentagemNota}%</div>`
 
         });       
+
         
 
       }
