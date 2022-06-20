@@ -82,8 +82,7 @@
         <h1 
         class="card-title text-center" 
         style="color:#8C52FF"
-        id="notaGeral"
-        >
+        id="notaGeral">
         &#45
         </h1>
         <h6 class="card-subtitle mb-2 text-muted text-center">Quantidade de acertos</h6>
@@ -91,10 +90,15 @@
           <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #8C52FF;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25%</div>
         </div>
         <!--média d turma-->
-        <h5 class="card-title text-center mt-1" style="color:#13aef1"> 35 </h5>
+        <h5 
+        class="card-title text-center mt-1" 
+        style="color:#13aef1"
+        id="notaMediaGeral">
+        &#45 
+        </h5>
         <h6 class="card-subtitle mb-2 text-muted text-center">Média da turma</h6>
-        <div class="progress" id="barNotaGeral">
-          <div class="progress-bar" role="progressbar" style="width: 58%; background-color: #13aef1;" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">58%</div>
+        <div class="progress" id="barMediaGeral">
+          <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #13aef1;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">58%</div>
         </div>
       </div>
     </div>
@@ -115,12 +119,11 @@
 
 
     function Notas(){
-        console.log("entrou aqui")
         const dados = new Request('./data/data.json');
         fetch(dados)
         .then(response => response.json())
         .then(data =>{
-        var acertosGerais = data[0][`${dataJoin}`]["Acertos"]
+        var acertosGerais = data[0][`${dataJoin}`]["geral"]
         console.log("Acertos gerais", acertosGerais)
         var acertos = acertosGerais
 
@@ -134,7 +137,23 @@
         barNotaGeral.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNota}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNota}" aria-valuemin="0" aria-valuemax="100">${porcentagemNota}%</div>`
         })
 
-        }
+        };
+
+    function Medias(){
+          const dados = new Request('./data/data.json');
+          fetch(dados)
+          .then(response => response.json())
+          .then(data =>{
+          var mediaGeral = data[0]["media"]["geral"]
+          console.log("media geral", mediaGeral)
+
+          var notaMedia = document.getElementById("notaMediaGeral");
+          notaMedia.innerHTML = `${mediaGeral}`
+
+          var barMediaGeral = document.getElementById("barMediaGeral");
+          barMediaGeral.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${mediaGeral}%; background-color: #8C52FF;" aria-valuenow="${mediaGeral}" aria-valuemin="0" aria-valuemax="100">${mediaGeral}%</div>`
+        })
+    }
 
     function SendForm(){
       
@@ -170,7 +189,7 @@
         }
 
         Notas()
-
+        Medias()
         console.log("depois...")
 
 
