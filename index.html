@@ -6,7 +6,6 @@
     <title>CPEL - Simulado</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!--Escondendo o toast do boostrap quando clicar no botão enviar-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
@@ -76,15 +75,15 @@
         <h1 id="mensagemUser">Olá!</h1>
         <p><b>Aqui estão suas notas :)</b></p>
     </div>
-
-    <div class="card p-2 ms-5 me-5 mb-3">
+    <!--GERAL-->
+    <div class="card p-2 ms-5 me-5 mb-3" style="border-color: #8C52FF; border-style:solid;">
       <div class="card-body">
         <!--acertos alunes-->
         <h1 
         class="card-title text-center" style="color:#8C52FF" id="notaGeral">
         &#45
         </h1>
-        <h6 class="card-subtitle mb-2 text-muted text-center">Quantidade de acertos</h6>
+        <h6 class="card-subtitle mb-2 text-muted text-center">Quantidade de acertos totais</h6>
         <div class="progress" id="barNotaGeral">
           <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #8C52FF;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25%</div>
         </div>
@@ -93,13 +92,13 @@
         class="card-title text-center mt-1" style="color:#13aef1" id="notaMediaGeral">
         &#45 
         </h5>
-        <h6 class="card-subtitle mb-2 text-muted text-center">Média da turma</h6>
+        <h6 class="card-subtitle mb-2 text-muted text-center">Média de acertos da turma</h6>
         <div class="progress" id="barMediaGeral">
           <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #13aef1;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">58%</div>
         </div>
       </div>
     </div>
-
+    <!--PORTUGUES-->
     <div class="card p-2 ms-5 me-5 mb-3">
       <div class="card-body text-center">
         <h4 class="card-title" style="color:#8C52FF" id="notaPortugues">&#45</h4>
@@ -115,14 +114,78 @@
         id="notaMediaPortugues">
         &#45 
         </h5>
-        <h6 class="card-subtitle mb-2 text-muted text-center">Média da turma</h6>
+        <h6 class="card-subtitle mb-2 text-muted text-center">Média de acertos da turma</h6>
         <div class="progress" id="barMediaPortugues">
           <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #13aef1;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">58%</div>
         </div>
-
+      </div>
+    </div>  
+    <!--INGLES-->
+    <div class="card p-2 ms-5 me-5 mb-3">
+      <div class="card-body text-center">
+        <h4 class="card-title" style="color:#8C52FF" id="notaIngles">&#45</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Inglês</h6>
+        <!--média ALUNO Ingles-->
+        <div class="progress" id="barNotaIngles">
+          <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #8C52FF;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25%</div>
+        </div>
+        <!--média GERAL Ingles-->
+        <h5 
+        class="card-title text-center mt-1" 
+        style="color:#13aef1"
+        id="notaMediaIngles">
+        &#45 
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted text-center">Média de acertos da turma</h6>
+        <div class="progress" id="barMediaIngles">
+          <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #13aef1;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">58%</div>
+        </div>
       </div>
     </div>
 
+    <!--Historia-->
+    <div class="card p-2 ms-5 me-5 mb-3">
+      <div class="card-body text-center">
+        <h4 class="card-title" style="color:#8C52FF" id="notaHistoria">&#45</h4>
+        <h6 class="card-subtitle mb-2 text-muted">História</h6>
+        <!--média ALUNO Historia-->
+        <div class="progress" id="barNotaHistoria">
+          <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #8C52FF;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25%</div>
+        </div>
+        <!--média GERAL Historia-->
+        <h5 
+        class="card-title text-center mt-1" 
+        style="color:#13aef1"
+        id="notaMediaHistoria">
+        &#45 
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted text-center">Média de acertos da turma</h6>
+        <div class="progress" id="barMediaHistoria">
+          <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #13aef1;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">58%</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Geografia-->
+<div class="card p-2 ms-5 me-5 mb-3">
+  <div class="card-body text-center">
+    <h4 class="card-title" style="color:#8C52FF" id="notaGeografia">&#45</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Geografia</h6>
+    <!--média ALUNO Geografia-->
+    <div class="progress" id="barNotaGeografia">
+      <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #8C52FF;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div>
+    <!--média GERAL Geografia-->
+    <h5 
+    class="card-title text-center mt-1" style="color:#13aef1" id="notaMediaGeografia">&#45 
+</h5>
+    <h6 class="card-subtitle mb-2 text-muted text-center">Média de acertos da turma</h6>
+    <div class="progress" id="barMediaGeografia">
+      <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #13aef1;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">58%</div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -130,9 +193,10 @@
 
     <script>
 
-
+    const dados = new Request('https://williroger.github.io/cpel-simulado/data/data.json')
+   
     function Notas(){
-        const dados = new Request('./data/data.json');
+
         fetch(dados)
         .then(response => response.json())
         .then(data =>{
@@ -153,30 +217,108 @@
         var acertosPortugues = data[0][`${dataJoin}`]["portugues"]
 
         var notaPortugues = document.getElementById("notaPortugues");
-        notaGeral.innerHTML = `${acertosPortugues}`
+        notaPortugues.innerHTML = `${acertosPortugues}`
 
         var porcentagemNotaPortugues = ((100/10)*acertosPortugues).toFixed(2)
         console.log("porcentagem notas", porcentagemNotaPortugues)
 
         var barNotaPortugues = document.getElementById("barNotaPortugues");
         barNotaPortugues.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNotaPortugues}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNotaPortugues}" aria-valuemin="0" aria-valuemax="100">${porcentagemNotaPortugues}%</div>`
+
+        //Ingles
+        var acertosIngles = data[0][`${dataJoin}`]["ingles"]
+
+        var notaIngles = document.getElementById("notaIngles");
+        notaIngles.innerHTML = `${acertosIngles}`
+
+        var porcentagemNotaIngles = ((100/3)*acertosIngles).toFixed(2)
+        console.log("porcentagem notas", porcentagemNotaIngles)
+
+        var barNotaIngles = document.getElementById("barNotaIngles");
+        barNotaIngles.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNotaIngles}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNotaIngles}" aria-valuemin="0" aria-valuemax="100">${porcentagemNotaIngles}%</div>`
+
+        //Historia
+        var acertosHistoria = data[0][`${dataJoin}`]["ingles"]
+
+        var notaHistoria = document.getElementById("notaHistoria");
+        notaHistoria.innerHTML = `${acertosHistoria}`
+
+        var porcentagemNotaHistoria = ((100/6)*acertosHistoria).toFixed(2)
+        console.log("porcentagem notas", porcentagemNotaHistoria)
+
+        var barNotaHistoria = document.getElementById("barNotaHistoria");
+        barNotaHistoria.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNotaHistoria}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNotaHistoria}" aria-valuemin="0" aria-valuemax="100">${porcentagemNotaHistoria}%</div>`
+
+        //Geografia
+        var acertosGeografia = data[0][`${dataJoin}`]["geografia"]
+
+        var notaGeografia = document.getElementById("notaGeografia");
+        notaGeografia.innerHTML = `${acertosGeografia}`
+
+        var porcentagemNotaGeografia = ((100/5)*acertosGeografia).toFixed(2)
+        console.log("porcentagem notas", porcentagemNotaGeografia)
+
+        var barNotaGeografia = document.getElementById("barNotaGeografia");
+        barNotaGeografia.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${porcentagemNotaGeografia}%; background-color: #8C52FF;" aria-valuenow="${porcentagemNotaGeografia}" aria-valuemin="0" aria-valuemax="100">${porcentagemNotaGeografia}%</div>`
+
+
+
         })
 
         };
 
     function Medias(){
-          const dados = new Request('./data/data.json');
+
           fetch(dados)
           .then(response => response.json())
           .then(data =>{
+          //Média Acertos Geral
           var mediaGeral = data[0]["media"]["geral"]
-          console.log("media geral", mediaGeral)
-
           var notaMedia = document.getElementById("notaMediaGeral");
           notaMedia.innerHTML = `${mediaGeral}`
 
+          //Média % Geral
+          var mediaGeralPorcento = (mediaGeral*(100/60)).toFixed(2)
           var barMediaGeral = document.getElementById("barMediaGeral");
-          barMediaGeral.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${mediaGeral}%; background-color: #8C52FF;" aria-valuenow="${mediaGeral}" aria-valuemin="0" aria-valuemax="100">${mediaGeral}%</div>`
+          barMediaGeral.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${mediaGeralPorcento}%; background-color: #8C52FF;" aria-valuenow="${mediaGeralPorcento}" aria-valuemin="0" aria-valuemax="100">${mediaGeralPorcento}%</div>`
+ 
+          //Média Portugues
+          var mediaPortugues = data[0]["media"]["portugues"]
+          var notaPortugues = document.getElementById("notaMediaPortugues");
+          notaPortugues.innerHTML = `${mediaPortugues}`
+          //Média % Portugues
+          var mediaPortuguesPorcento = (mediaPortugues*(100/10)).toFixed(2)
+          var mediaPortugues = document.getElementById("barMediaPortugues");
+          barMediaPortugues.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${mediaPortuguesPorcento}%; background-color: #8C52FF;" aria-valuenow="${mediaPortuguesPorcento}" aria-valuemin="0" aria-valuemax="100">${mediaPortuguesPorcento}%</div>`
+
+          //Média Ingles
+          var mediaIngles = data[0]["media"]["ingles"]
+          var notaIngles = document.getElementById("notaMediaIngles");
+          notaIngles.innerHTML = `${mediaIngles}`
+          //Média % Ingles
+          var mediaInglesPorcento = (mediaIngles*(100/3)).toFixed(2)
+          var mediaIngles = document.getElementById("barMediaIngles");
+          barMediaIngles.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${mediaInglesPorcento}%; background-color: #8C52FF;" aria-valuenow="${mediaInglesPorcento}" aria-valuemin="0" aria-valuemax="100">${mediaInglesPorcento}%</div>`
+
+
+          //Média Historia
+          var mediaHistoria = data[0]["media"]["ingles"]
+          var notaHistoria = document.getElementById("notaMediaHistoria");
+          notaHistoria.innerHTML = `${mediaHistoria}`
+          //Média % Historia
+          var mediaHistoriaPorcento = (mediaHistoria*(100/6)).toFixed(2)
+          var mediaHistoria = document.getElementById("barMediaHistoria");
+          barMediaHistoria.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${mediaHistoriaPorcento}%; background-color: #8C52FF;" aria-valuenow="${mediaHistoriaPorcento}" aria-valuemin="0" aria-valuemax="100">${mediaHistoriaPorcento}%</div>`
+
+                  //Média Geografia
+                  var mediaGeografia = data[0]["media"]["geografia"]
+                  var notaGeografia = document.getElementById("notaMediaGeografia");
+                  notaGeografia.innerHTML = `${mediaGeografia}`
+                  //Média % Geografia
+                  var mediaGeografiaPorcento = (mediaGeografia*(100/5)).toFixed(2)
+                  var mediaGeografia = document.getElementById("barMediaGeografia");
+                  barMediaGeografia.innerHTML = `<div class="progress-bar" role="progressbar" style="width: ${mediaGeografiaPorcento}%; background-color: #8C52FF;" aria-valuenow="${mediaGeografiaPorcento}" aria-valuemin="0" aria-valuemax="100">${mediaGeografiaPorcento}%</div>`
+                              
         })
     }
 
@@ -186,18 +328,9 @@
         var dataInvertida = data.split('-').reverse().join('/')
         dataJoin = data.split('-').reverse().join('')
 
-        console.log("Data Nascimento", data)
-        console.log("Data Invertida", dataInvertida)
-        console.log("Data Join", dataJoin)
-
         var mensagemUser = document.getElementById("mensagemUser");
         mensagemUser.innerHTML = `Olá, ${dataInvertida}!`
 
-        //teste pegar notas para barra
-        //getDatas()
-        //var acertos = acertosGerais
-
-        const dados = new Request('./data/data.json');
         fetch(dados)
         .then(response => response.json())
         .then(data => {
@@ -215,7 +348,6 @@
 
         Notas()
         Medias()
-        console.log("depois...")
 
 
         });       
@@ -228,45 +360,6 @@
         function handleForm(event) { event.preventDefault(); } 
         form.addEventListener('submit', handleForm);
 
-    function getDatas(){  
-
-        // var data = document.getElementById("dataNascimento").value;
-        // var dataJoin = data.split('-').reverse().join('')
-        // var gabarito = "gabarito"
-
-        const dados = new Request('./data/data.json');
-        fetch(dados)
-        .then(response => response.json())
-        .then(data => {
-            
-            var acertosGerais = data[0][`${dataJoin}`]["Acertos"]
-            console.log("Acertos gerais", acertosGerais)
-
-            var acertos = acertosGerais
-            
-            // //número da questão
-            // let q1 = document.getElementsByTagName("span")[0].id;
-            
-            // console.log("questao", q1)
-
-            // function isKeyExists(obj,key){
-            //     return obj.hasOwnProperty(key);
-            // }
-
-            // console.log("TEM ESSE VALOR? "+isKeyExists(`${data[0]}`, "12"))
-            
-            // //letra marcada pelo aluno
-            // document.getElementById(`${q1}`).innerHTML = `${data[0][`${codAluno}`][`${q1}`]}`;
-                   
-            // //cores
-            // if (`${data[0][`${codAluno}`][`${q1}`]}` == `${data[1][`${gabarito}`][`${q1}`]}`) {
-            //     document.getElementById(`${q1}`).classList.add('bg-primary');
-            // } else {
-            //     document.getElementById(`${q1}`).classList.add('bg-danger');
-            // };
-
-        });
-    }
     </script>
   </body>
 </html>
